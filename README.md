@@ -57,8 +57,8 @@ The result is an instant, structured review with quality scores, bug detection, 
 
 ## n8n Workflow
 
-![n8n](<img width="959" height="376" alt="image" src="https://github.com/user-attachments/assets/adc96652-a727-4140-8e49-d2fc94de31ef" />
-)
+<img width="959" height="376" alt="image" src="https://github.com/user-attachments/assets/a51dab92-98d0-4814-9a70-0971bbd45864" />
+
 
 ---
 
