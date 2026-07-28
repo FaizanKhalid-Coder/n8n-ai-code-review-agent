@@ -1,0 +1,50 @@
+{
+  "name": "ai-code-reviewer",
+  "displayName": "AI Code Reviewer",
+  "description": "Automatic AI-powered code review on save, using your n8n + Gemini workflow.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other", "Linters"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiCodeReviewer.reviewCurrentFile",
+        "title": "AI Code Reviewer: Review Current File"
+      },
+      {
+        "command": "aiCodeReviewer.openPanel",
+        "title": "AI Code Reviewer: Open Review Panel"
+      }
+    ],
+    "configuration": {
+      "title": "AI Code Reviewer",
+      "properties": {
+        "aiCodeReviewer.webhookUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Your n8n production webhook URL (from the Webhook node's Production URL tab)."
+        },
+        "aiCodeReviewer.reviewOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically send the file for review every time you save (Ctrl+S)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}
