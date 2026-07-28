@@ -1,99 +1,289 @@
-# AI Code Reviewer (VS Code Extension)
+<div align="center">
 
-Automatic code review on save. Save a file → the extension sends the code to
-your n8n webhook → Gemini reviews it → a side panel shows a quality score,
-issues, and a one-click "fixed code" you can accept or copy.
+# 🤖 AI Code Review Agent
 
-## 1. Install dependencies
+### Intelligent AI-Powered Code Reviews Directly Inside VS Code
 
-Open a terminal **inside this folder** and run:
+An AI-powered Code Review Agent that integrates **VS Code**, **n8n**, and **Google Gemini** to automatically analyze code quality, detect bugs, identify security issues, suggest improvements, and generate optimized code in real time.
+
+<p align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/n8n-ai-code-review-agent?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/n8n-ai-code-review-agent?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/n8n-ai-code-review-agent?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/n8n-ai-code-review-agent?style=for-the-badge)
+![License](https://img.shields.io/github/license/YOUR_USERNAME/n8n-ai-code-review-agent?style=for-the-badge)
+
+</p>
+
+</div>
+
+---
+
+# 📖 Overview
+
+Instead of copying code into an AI chatbot every time you need feedback, this project brings AI-powered code reviews directly into your development workflow.
+
+Simply save your file inside **Visual Studio Code**, and the AI automatically reviews your code through an **n8n workflow** powered by **Google Gemini**.
+
+The result is an instant, structured review with quality scores, bug detection, security analysis, performance suggestions, and AI-generated fixes.
+
+---
+
+# ✨ Features
+
+- 🔍 Automatic code review
+- ⚡ Real-time analysis
+- 🤖 Google Gemini integration
+- 🔐 Security vulnerability detection
+- 🐞 Bug & logic error detection
+- 🚀 Performance optimization suggestions
+- ⭐ Code Quality Score (0–10)
+- 📊 Severity-based issue categorization
+- 💡 AI-generated improved code
+- 🖥️ Professional VS Code sidebar
+- 📋 Structured JSON responses
+- 🔄 Fully automated n8n workflow
+
+---
+
+# 📸 Screenshots
+
+## VS Code Extension
+
+![VS Code](screenshots/vscode-extension.png)
+
+---
+
+## n8n Workflow
+
+![n8n](screenshots/n8n-workflow.png)
+
+---
+
+## AI Review Report
+
+![Review](screenshots/review-panel.png)
+
+---
+
+# 🏗 Architecture
+
+```text
+                    ┌────────────────────┐
+                    │    Visual Studio    │
+                    │        Code         │
+                    └──────────┬──────────┘
+                               │
+                         Ctrl + S
+                               │
+                               ▼
+                 ┌────────────────────────┐
+                 │ VS Code Extension      │
+                 └──────────┬─────────────┘
+                            │
+                            ▼
+                  ┌─────────────────────┐
+                  │     n8n Workflow    │
+                  └──────────┬──────────┘
+                             │
+                             ▼
+                ┌────────────────────────┐
+                │ Google Gemini API      │
+                └──────────┬─────────────┘
+                           │
+                           ▼
+             AI Analysis + Structured JSON
+                           │
+                           ▼
+              ┌─────────────────────────┐
+              │ VS Code Review Panel    │
+              └─────────────────────────┘
+```
+
+---
+
+# ⚙️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| TypeScript | VS Code Extension |
+| Node.js | Backend Runtime |
+| n8n | Workflow Automation |
+| Google Gemini API | AI Code Review |
+| REST API | Communication |
+| JSON | Structured Responses |
+
+---
+
+# 📂 Project Structure
+
+```text
+n8n-ai-code-review-agent/
+
+├── vscode-extension/
+│   ├── src/
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── n8n-workflow/
+│   └── workflow.json
+│
+├── screenshots/
+│   ├── vscode-extension.png
+│   ├── n8n-workflow.png
+│   └── review-panel.png
+│
+├── README.md
+└── LICENSE
+```
+
+---
+
+# 🚀 Installation
+
+## 1️⃣ Clone Repository
 
 ```bash
+git clone https://github.com/YOUR_USERNAME/n8n-ai-code-review-agent.git
+
+cd n8n-ai-code-review-agent
+```
+
+---
+
+## 2️⃣ Install Extension Dependencies
+
+```bash
+cd vscode-extension
+
 npm install
 ```
 
-This downloads TypeScript and the VS Code type definitions needed to build
-the extension.
+---
 
-## 2. Compile
+## 3️⃣ Import n8n Workflow
+
+Open n8n
+
+Import
+
+```
+workflow.json
+```
+
+---
+
+## 4️⃣ Configure Environment
+
+Create
+
+```
+.env
+```
+
+Add
+
+```env
+GEMINI_API_KEY=YOUR_API_KEY
+```
+
+---
+
+## 5️⃣ Run Extension
 
 ```bash
 npm run compile
 ```
 
-This turns `src/extension.ts` into `out/extension.js`, which is what VS Code
-actually runs.
+Press
 
-(Optional, while developing: run `npm run watch` instead — it recompiles
-automatically every time you save a change to the extension's own code.)
-
-## 3. Run it inside VS Code
-
-1. Open this `ai-code-reviewer` folder in VS Code (`File > Open Folder...`).
-2. Press **F5** (or `Run > Start Debugging`).
-3. A **new VS Code window** opens — this is the "Extension Development Host,"
-   a sandbox with your extension already loaded.
-
-## 4. Point it at your n8n webhook
-
-In the **new window** that opened:
-
-1. Open Settings (`Ctrl+,`).
-2. Search for **"AI Code Reviewer"**.
-3. Paste your n8n **Production Webhook URL** into `aiCodeReviewer.webhookUrl`.
-   (This is the same URL from your Webhook node's "Production URL" tab.)
-
-## 5. Try it
-
-1. In that same sandbox window, open or create any code file (e.g. a `.py`
-   or `.cpp` file).
-2. Write some code, then press **Ctrl+S** to save.
-3. The review panel opens automatically on the side, showing:
-   - A **quality score** (0–10)
-   - A **summary**
-   - A list of **issues** (color-coded by severity)
-   - **Suggested fixed code**, with buttons to **Copy** it or
-     **Accept & Apply** it directly into your editor
-4. Click **"Re-run Review"** anytime to review the current file again without
-   saving a new change.
-
-You can also trigger a review manually without saving, via the Command
-Palette (`Ctrl+Shift+P`) → **"AI Code Reviewer: Review Current File"**.
-
-## 6. Turning off auto-review-on-save
-
-If you'd rather trigger reviews manually instead of on every save, go to
-Settings → **AI Code Reviewer** → uncheck `aiCodeReviewer.reviewOnSave`.
-
-## 7. Installing it permanently (not just for testing)
-
-Once you're happy with it, you can package it into a real, installable
-extension file:
-
-```bash
-npm install -g @vscode/vsce
-vsce package
+```
+F5
 ```
 
-This creates a file like `ai-code-reviewer-0.1.0.vsix`. Install it in any VS
-Code with:
+to launch the Extension Development Host.
 
-```bash
-code --install-extension ai-code-reviewer-0.1.0.vsix
+---
+
+# 🚀 Usage
+
+1. Open VS Code
+2. Start the Extension
+3. Open a source file
+4. Press **Ctrl + S**
+5. Wait a few seconds
+6. View AI Review
+7. Copy or Apply Suggested Fixes
+
+---
+
+# 📊 AI Review Output
+
+The AI returns a structured report including:
+
+```json
+{
+  "score": 9,
+  "issues": [
+    {
+      "severity": "High",
+      "title": "Potential SQL Injection",
+      "fix": "Use parameterized queries."
+    }
+  ],
+  "improvedCode": "..."
+}
 ```
 
-Or via the UI: Extensions panel → `...` menu → **"Install from VSIX..."**.
+---
 
-## Troubleshooting
+# 🎯 Roadmap
 
-- **"No webhook URL configured"** → you haven't set
-  `aiCodeReviewer.webhookUrl` in Settings yet (Step 4).
-- **Panel shows raw text instead of score/issues** → your n8n AI Agent isn't
-  returning structured JSON yet. Make sure "Require Specific Output Format"
-  is enabled on the AI Agent node, and the Respond to Webhook node's
-  Response Body is `{{ $json.output }}`.
-- **"Webhook returned status 404"** → you're using the **Test URL** instead
-  of the **Production URL**, or the workflow isn't Published/Active in n8n.
-- **Nothing happens on save** → check `aiCodeReviewer.reviewOnSave` is
-  enabled, and that you saved a real file on disk (not an unsaved/untitled
-  document).
+- [ ] Multi-language support
+- [ ] GitHub Pull Request Reviews
+- [ ] Inline AI Suggestions
+- [ ] AI Chat Mode
+- [ ] Multiple LLM Support
+- [ ] Review History
+- [ ] Team Collaboration
+- [ ] Dark/Light Themes
+- [ ] Export Reports
+- [ ] Docker Deployment
+
+---
+
+# 🤝 Contributing
+
+Contributions are always welcome.
+
+1. Fork the project
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# 👨‍💻 Author
+
+**Faizan Khalid**
+
+Backend Developer • AI Automation Enthusiast • Computer Science Student
+
+- 💼 LinkedIn: https://linkedin.com/in/YOUR_USERNAME
+- 🌐 GitHub: https://github.com/FaizanKhalid-Coder
+
+---
+
+<div align="center">
+
+⭐ If you found this project useful, don't forget to star the repository!
+
+</div>
