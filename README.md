@@ -49,9 +49,10 @@ The result is an instant, structured review with quality scores, bug detection, 
 
 # 📸 Screenshots
 
-## VS Code Extension
+## VS Code Extension and AI Review Report
 
-![VS Code](screenshots/vscode-extension.png)
+<img width="911" height="497" alt="image" src="https://github.com/user-attachments/assets/bd61daf4-4715-4915-9292-b2bc4217f012" />
+
 
 ---
 
@@ -59,12 +60,6 @@ The result is an instant, structured review with quality scores, bug detection, 
 
 <img width="959" height="376" alt="image" src="https://github.com/user-attachments/assets/a51dab92-98d0-4814-9a70-0971bbd45864" />
 
-
----
-
-## AI Review Report
-
-![Review](screenshots/review-panel.png)
 
 ---
 
