@@ -273,7 +273,7 @@ This project is licensed under the **MIT License**.
 
 Backend Developer • AI Automation Enthusiast • Computer Science Student
 
-- 💼 LinkedIn: https://linkedin.com/in/YOUR_USERNAME
+- 💼 LinkedIn: https://www.linkedin.com/in/faizan-khalid-b95140395/
 - 🌐 GitHub: https://github.com/FaizanKhalid-Coder
 
 ---
